@@ -18,7 +18,7 @@ T MessageQueue<T>::receive()
      When we have messages, _queue.empty() == false.
      Therefore, !_queue.empty() == true.
      When the pred() function is true, then the thread is unblocked.
-     See https://cplusplus.com/reference/condition_variable/condition_variable/wait/
+     See https://cplusplus.com/reference/condition_variable/condition_variable/wait/ 
      and https://knowledge.udacity.com/questions/929618 */
   _condition.wait(lock, [this] {return !_queue.empty();});
   T msg = std::move(_queue.back());
@@ -66,7 +66,17 @@ void TrafficLight::simulate()
 {
     // FP.2b : Finally, the private method „cycleThroughPhases“ should be started in a thread when the public method „simulate“ is called. To do this, use the thread queue in the base class.
   
-/* threads is a vector in the TrafficObject class, which is the parent class of the TrafficLight class */
+/* threads is a vector in the TrafficObject class, which is the parent class of the TrafficLight class.  In the line below, you're calling the member function  cycleThroughPhases on the TrafficLight object.  
+The way you call a member function in a thread is like so:
+Vehicle v;
+std::thread t = std::thread(&Vehicle::addID, v); // calling member function addID on object v    
+See file "Part 1 - Intro & Running Threads" under the heading "Starting Threads with Member Functions" for more info.  
+When you're running multiple threads, it's best to add them to a vector of threads, then loop over the vector at the end of the main function and call join on all the thread objects inside the vector like so:
+// call join on all thread objects using a range-based loop
+for (auto &t : threads)
+     t.join();
+If we use push_back() instead of emplace_back() in the line below, we get a compiler error. The problem is that by pushing the thread object into the vector, we attempt to make a copy of it. However, thread objects do not have a copy constructor and thus can not be duplicated. If this were possible, we would create yet another branch in the flow of execution - which is not what we want. The solution to this problem is to use move semantics, which provide a convenient way for the contents of objects to be 'moved' between objects, rather than copied.  To solve our problem, we can use the function emplace_back() instead of push_back(), which internally uses move semantics to move our thread object into the vector without making a copy.
+See file "Part 1 - Intro & Running Threads" under the heading "Running Multiple Threads" for more info.  */
   threads.emplace_back(std::thread(&TrafficLight::cycleThroughPhases, this));
 }
 
@@ -85,9 +95,9 @@ void TrafficLight::cycleThroughPhases()
   std::chrono::time_point<std::chrono::system_clock> lastUpdate;
   // from https://knowledge.udacity.com/questions/708499
   std::random_device rd;
-  /* std::mt19937 is a Mersenne Twister random number generator.
+  /* std::mt19937 is a Mersenne Twister random number generator.  
   See https://cplusplus.com/reference/random/mt19937/ */
-  std::mt19937 eng(rd());
+  std::mt19937 eng(rd());  
   // 4000 - 6000 milliseconds; i.e. cycle duration is between 4 - 6 seconds
   std::uniform_int_distribution<int> dist(4000,6000);
   // first random value for time on/off of TrafficLight
