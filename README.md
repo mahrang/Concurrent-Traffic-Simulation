@@ -4,6 +4,10 @@ I built a traffic simulation where vehicles move concurrently along streets with
 
 Vehicles cross intersections when traffic lights are green and stop at intersections where traffic lights are red.
 
+The traffic lights are the red and green dots, indicating red and green lights. 
+
+The other circles are the vehicles.
+
 In Paris:
 
 ![Paris](https://github.com/user-attachments/assets/4e61936f-6aba-4833-b157-91136f8e8eb1)
