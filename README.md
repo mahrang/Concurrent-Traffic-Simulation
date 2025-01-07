@@ -1,6 +1,13 @@
 # Concurrent Traffic Simulation
 
-<img src="data/traffic_simulation.gif"/>
+Paris:
+
+![Paris](https://github.com/user-attachments/assets/4e61936f-6aba-4833-b157-91136f8e8eb1)
+
+NYC:
+
+![NYC](https://github.com/user-attachments/assets/093db493-518a-4db4-828d-5494d9f70ead)
+
 
 ## Dependencies for Running Locally
 * cmake >= 2.8
