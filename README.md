@@ -1,6 +1,7 @@
 # Concurrent Traffic Simulation
 
 I built a traffic simulation where vehicles move concurrently along streets with traffic lights using multithreading.
+
 Vehicles cross intersections when traffic lights are green.
 
 In Paris:
