@@ -1,10 +1,12 @@
 # Concurrent Traffic Simulation
 
-Paris:
+I built a traffic simulation where vehicles move concurrently along streets with traffic lights using multithreading.
+
+In Paris:
 
 ![Paris](https://github.com/user-attachments/assets/4e61936f-6aba-4833-b157-91136f8e8eb1)
 
-NYC:
+In NYC:
 
 ![NYC](https://github.com/user-attachments/assets/093db493-518a-4db4-828d-5494d9f70ead)
 
