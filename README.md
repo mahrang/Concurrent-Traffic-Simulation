@@ -16,7 +16,8 @@ https://github.com/user-attachments/assets/6c40b21e-ecb4-4752-a016-f1bc7c19b39e
 
 In NYC:
 
-![NYC](https://github.com/user-attachments/assets/093db493-518a-4db4-828d-5494d9f70ead)
+
+https://github.com/user-attachments/assets/9598ddb6-d07c-4446-b003-66c5a8f9be0a
 
 
 ## Dependencies for Running Locally
