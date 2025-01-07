@@ -40,3 +40,5 @@ https://github.com/user-attachments/assets/9598ddb6-d07c-4446-b003-66c5a8f9be0a
 2. Make a build directory in the top level directory: `mkdir build && cd build`
 3. Compile: `cmake .. && make`
 4. Run it: `./traffic_simulation`.
+
+To change the map from Paris to NYC, change Paris to NYC in createTrafficObjects_Paris in line 126 of TrafficSimulator-Final.cpp.
