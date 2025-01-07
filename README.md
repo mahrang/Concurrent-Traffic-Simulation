@@ -10,7 +10,9 @@ The other circles are the vehicles.
 
 In Paris:
 
-![Paris](https://github.com/user-attachments/assets/4e61936f-6aba-4833-b157-91136f8e8eb1)
+
+https://github.com/user-attachments/assets/6c40b21e-ecb4-4752-a016-f1bc7c19b39e
+
 
 In NYC:
 
