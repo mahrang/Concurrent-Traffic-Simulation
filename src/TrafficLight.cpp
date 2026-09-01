@@ -28,7 +28,7 @@ T MessageQueue<T>::receive()
 template <typename T>
 void MessageQueue<T>::send(T &&msg)
 {
-    // The method send should use the mechanisms std::lock_guard<std::mutex>
+    // The method send uses the mechanisms std::lock_guard<std::mutex>
     // as well as _condition.notify_one() to add a new message to the queue and afterwards send a notification.
   std::lock_guard<std::mutex> lock(_mutex);
   _queue.emplace_back(std::move(msg));
