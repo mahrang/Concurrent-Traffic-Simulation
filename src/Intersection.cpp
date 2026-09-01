@@ -86,7 +86,7 @@ void Intersection::addVehicleToQueue(std::shared_ptr<Vehicle> vehicle)
     lck.lock();
     std::cout << "Intersection #" << _id << ": Vehicle #" << vehicle->getID() << " is granted entry." << std::endl;
     
-    // use the methods TrafficLight::getCurrentPhase and TrafficLight::waitForGreen to block the execution until the traffic light turns green.
+    // The methods TrafficLight::getCurrentPhase and TrafficLight::waitForGreen block the execution until the traffic light turns green.
     if (_trafficLight.getCurrentPhase() == TrafficLightPhase::red)
       _trafficLight.waitForGreen();
 
@@ -95,8 +95,6 @@ void Intersection::addVehicleToQueue(std::shared_ptr<Vehicle> vehicle)
 
 void Intersection::vehicleHasLeft(std::shared_ptr<Vehicle> vehicle)
 {
-    //std::cout << "Intersection #" << _id << ": Vehicle #" << vehicle->getID() << " has left." << std::endl;
-
     // unblock queue processing
     this->setIsBlocked(false);
 }
@@ -104,15 +102,13 @@ void Intersection::vehicleHasLeft(std::shared_ptr<Vehicle> vehicle)
 void Intersection::setIsBlocked(bool isBlocked)
 {
     _isBlocked = isBlocked;
-    //std::cout << "Intersection #" << _id << " isBlocked=" << isBlocked << std::endl;
 }
 
 // virtual function which is executed in a thread
 void Intersection::simulate() // using threads + promises/futures + exceptions
 {
-    // FP.6a : In Intersection.h, add a private member _trafficLight of type TrafficLight. At this position, start the simulation of _trafficLight.
+    // Start the simulation of _trafficLight
     _trafficLight.simulate();
-    // next line is original code from starter code
     // launch vehicle queue processing in a thread
     threads.emplace_back(std::thread(&Intersection::processVehicleQueue, this));
 }
@@ -140,16 +136,13 @@ void Intersection::processVehicleQueue()
     }
 }
 
-/* Rubric Tip: Uncomment the code below to meet the specifications mentioned in the project*/
-
 bool Intersection::trafficLightIsGreen()
 {
-/* The if-else statement was commented out in the starter code.  Only the "return true" at the end was uncommented.  We're supposed to uncomment the if-else statement and comment out "return true" when we finish all the tasks.  When all this function does is "return true", the traffic lights always stay green, but when you uncomment the if-else statement, they toggle between green & red if you did the tasks right. */
+
+/* Traffic light toggles between green & red. */
   
    if (_trafficLight.getCurrentPhase() == TrafficLightPhase::green)
        return true;
    else
        return false;
-   
-  //return true; // makes traffic light permanently green
 }
