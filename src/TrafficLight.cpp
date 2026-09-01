@@ -8,9 +8,9 @@
 template <typename T>
 T MessageQueue<T>::receive()
 {
-    // The method receive should use std::unique_lock<std::mutex> and _condition.wait()
+    // The method receive uses std::unique_lock<std::mutex> and _condition.wait()
     // to wait for and receive new messages and pull them from the queue using move semantics.
-    // The received object should then be returned by the receive function.
+    // The received object is then returned by the receive function.
   std::unique_lock<std::mutex> lock(_mutex);
   /* The line below means "wait if there are no messages".
      It behaves like:  while (pred()==false) wait(lck);
