@@ -63,7 +63,7 @@ TrafficLightPhase TrafficLight::getCurrentPhase()
 
 void TrafficLight::simulate()
 {
-    // The private method „cycleThroughPhases“ should be started in a thread when the public method „simulate“ is called. To do this, use the thread queue in the base class.
+    // The private method "cycleThroughPhases" is started in a thread when the public method "simulate" is called. To do this, I used the thread queue in the base class.
   
 /* threads is a vector in the TrafficObject class, which is the parent class of the TrafficLight class.  In the line below, you're calling the member function  cycleThroughPhases on the TrafficLight object.  
 The way you call a member function in a thread is like so:
